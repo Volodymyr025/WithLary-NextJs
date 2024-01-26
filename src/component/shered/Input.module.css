@@ -1,0 +1,46 @@
+.input, .btn {
+    margin: 0.5rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: end;
+    color: black;
+    box-shadow: 1px -1px 1px 0px;
+    font-size: 1.6rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .btn{
+      width: 330px;
+      background-color: #CBE3C7;
+      text-align: center;
+      margin-top: 3rem;
+      box-shadow: 1px 3px 1px;
+  }
+  .arrow {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(180deg);
+  }
+  
+  .arrow_bot {
+    width: 25px;
+    height: 5px;
+    background-color: black;
+    transform: rotate(25deg);
+    border-radius: 3px;
+  }
+  
+  .arrow_mid {
+    width: 40px;
+    height: 6px;
+    background-color: black;
+    border-radius: 5px;
+  }
+  
+  .arrow_top {
+    width: 25px;
+    height: 5px;
+    background-color: black;
+    transform: rotate(-25deg);
+    border-radius: 3px;
+  }

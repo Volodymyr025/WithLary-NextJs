@@ -1,0 +1,123 @@
+.menu__item__main {
+    background-color: #cd68cd;
+    display: grid;
+    justify-content: center;
+    grid-template: 1fr 0fr/2.2fr 1fr;
+    color: white;
+    padding: 1rem 1rem;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    transition-duration: .25s;
+    grid-template-areas:
+        "logo lang"
+        "reg reg";
+}
+
+.logMenu {
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+    grid-template: 0fr/0.2fr 0fr 0.2fr;
+    font-size: 26px;
+    padding: 1rem;
+    grid-area: reg;
+}
+
+.select_lang {
+    display: grid;
+    justify-content: end;
+    align-items: center;
+    grid-template: 0fr/0.2fr 0fr 0.2fr;
+    font-size: 16px;
+    padding: 1rem;
+    grid-area: lang;
+}
+
+.logMenu * {
+    margin: 0px 5px;
+}
+
+.select_lang * {
+    margin: 0px 5px;
+}
+
+.line {
+    background-color: white;
+    width: 0.15rem;
+    height: 100%;
+    border-radius: 5px;
+}
+
+.bar {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 90;
+    width: 50%;
+    height: 50%;
+    margin: 0 auto;
+}
+
+
+
+.bar span {
+    position: absolute;
+    display: block;
+    background-color: white;
+    width: 2.5rem;
+    height: 0.3rem;
+    transition: all 0.5s ease;
+}
+
+.bar span:first-child {
+    transform: translateY(10px)
+}
+
+.bar span:last-child {
+    transform: translateY(-10px)
+}
+
+.bar.close span:first-child {
+    transform: translateY(0) rotate(45deg);
+}
+
+.bar.close span:last-child {
+    transform: translateY(0) rotate(-45deg);
+}
+
+.bar.close span:nth-child(2) {
+    opacity: 0;
+}
+
+
+
+.main {
+    background-color: white;
+    z-index: 5;
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;    
+    width: 25%;
+    height: 100%;
+    display: table;
+}
+
+
+.options {
+    display: grid;
+    grid-template: 1fr/2rem 1fr;
+    justify-content: start;
+    align-items: center;
+    font-size: 24px;
+    color: #00000099;
+    padding: 1rem 2rem;
+}
+
+.options p {
+    grid-column: 2/3;
+    margin: 0;
+    padding: 0;
+}

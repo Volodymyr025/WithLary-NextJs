@@ -1,0 +1,16 @@
+.bg{
+    background-color:#caaacd;
+    width: 100%;
+    text-align: center;
+}
+.box{
+    display: flex;
+    justify-content: flex-start;
+    padding: 2rem;
+    list-style-type: none;
+    font-size: 18px;
+    font-weight: bold;
+}
+.box li {
+    margin: 0.5rem;
+}

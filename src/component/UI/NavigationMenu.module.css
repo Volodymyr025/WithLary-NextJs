@@ -1,0 +1,30 @@
+.nav_menu{
+    display: grid;
+    grid-template: var(--heigthNavBar)/10% 1fr 2fr;
+    background: #caaacd;
+    justify-content: center;
+    align-items: center;
+}
+.nav_list{
+    display: grid;
+    align-items: center;
+    justify-content: end;
+    grid-template: 4rem/15% 15% 15% 15% 40%;
+    list-style-type: none;
+    color: white;
+    grid-column: 3/4;
+    margin: 5px;
+    padding: 0;
+}
+
+.nav_list li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+.active{
+    box-shadow: inset 0px 0px 20px 0px white;
+    border-radius: 15px;
+    padding: 3px;
+}
