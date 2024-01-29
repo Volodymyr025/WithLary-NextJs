@@ -1,31 +1,104 @@
+
 import React from "react";
 import style from "./SleepPage.module.css";
+import { Button } from "@mui/material";
+import FavoriteIcon from "@/component/UI/FavoriteIcon";
+
 
 const SleepPage = () => {
   const items = [
     {
       title: "Text",
       discriptions: "Discriptions",
-      image:
-        "https://i5.walmartimages.com/dfw/4ff9c6c9-7717/k2-_a9270c7b-5e8d-47d5-a049-b477a2d87f05.v1.png",
+      image: "assets/images.jpg",
       price: 150,
     },
     {
       title: "Textdd",
       discriptions: "Discriptions",
-      image:
-        "https://mama-kupi.ua/image/cachewebp//catalog/product/279174-600x912.webp",
+      image: "assets/89-896932_6v-vw-beetle-toy-car-for-kids-png.png",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
+      price: 150,
+    },
+    {
+      title: "Text",
+      discriptions: "Discriptions",
+      image: "assets/images.jpg",
       price: 150,
     },
   ];
 
   return (
     <div className={style.bg}>
-      <h1 className="logoLary">WithLary</h1>
-      <p className="underLogo">Help Ma & Pa</p>
+      <div className={style.title}>
+        <h1 className="logoLary">WithLary</h1>
+        <p className="underLogo">Help Ma & Pa</p>
+      </div>
       <ul className={style.box}>
-        {items.map((item) => (
-          <li>1</li>
+        {items.map((item, index) => (
+          <li key={index}>
+            {
+              <>
+                <FavoriteIcon/>
+                <img src={item.image} alt={item.title} />
+                <h4>{item.title}</h4>
+                <p>{item.discriptions}</p>
+                <p>{item.price + " uah"}</p>
+                <div className={style.btn}>
+                  <Button size="small" variant="contained" color="success">
+                    Buy
+                  </Button>
+                </div>
+              </>
+            }
+          </li>
         ))}
       </ul>
     </div>
