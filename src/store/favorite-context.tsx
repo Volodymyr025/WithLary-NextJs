@@ -5,20 +5,22 @@ import { items } from "@/component/util/items";
 export const FavoriteContext = createContext<any>({
   itemsList: [],
   addFavorite: () => {},
-  deleteFavorite: () => {},
+  remoteFavorite: () => {},
 });
 
 export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [itemsCtx, setItemsCtx] = useState<any>([]);
 
-  const addToList = (id: number, check: boolean) => {
-    check && setItemsCtx((prev: []) => [...prev, items[id]]);
+  const addToList = (value: { id: string }) => {
+    const findItem = itemsCtx.find(
+      (findId: { id: string }) => findId.id === value.id
+    );
+    !findItem && setItemsCtx((prev: []) => [...prev, value]);
   };
 
-  const deleteFromList = (id: number) => {
-    const newList = itemsCtx.filter((deleteID: any) => deleteID.length === id);
-    console.log(itemsCtx);
-    console.log(newList);
+  const remoteFromList = (value: number) => {
+    const newList = itemsCtx.filter((item: {}) => item !== value);
+    setItemsCtx(newList);
   };
 
   return (
@@ -26,7 +28,7 @@ export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
       value={{
         itemsList: itemsCtx,
         addFavorite: addToList,
-        deleteFavorite: deleteFromList,
+        remoteFavorite: remoteFromList,
       }}
     >
       {children}
