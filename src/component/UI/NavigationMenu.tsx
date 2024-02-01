@@ -26,7 +26,7 @@ const NavigationMenu = () => {
 
       <HamburgerMenu />
       <ul className={style.nav_list}>
-        <li className={path === '/' ? style.active : undefined}>
+        <li className={path === "/" ? style.active : undefined}>
           <Link href={"/"}>
             <Home style={{ fontSize: 50 }} />
           </Link>
@@ -34,8 +34,10 @@ const NavigationMenu = () => {
         <li>
           <Search style={{ fontSize: 50 }} />
         </li>
-        <li>
-          <Favorite style={{ fontSize: 50 }} />
+        <li className={path === "/favorite" ? style.active : undefined}>
+          <Link href={"/favorite"}>
+            <Favorite style={{ fontSize: 50 }} />
+          </Link>
         </li>
         <li onClick={openCart}>
           <ShoppingCart style={{ fontSize: 50, cursor: "pointer" }} />

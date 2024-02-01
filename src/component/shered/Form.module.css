@@ -1,7 +1,7 @@
 .bg_page {
   background-color: #caaacd;
   text-align: center;
-  height: calc(100% - var(--heigthNavBar))
+  min-height: calc(100% - var(--heigthNavBar))
 }
 
 .bg_page h2 {
