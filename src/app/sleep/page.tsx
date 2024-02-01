@@ -1,79 +1,13 @@
-
-import React from "react";
+"use client";
+import React, { useContext, useState } from "react";
 import style from "./SleepPage.module.css";
 import { Button } from "@mui/material";
 import FavoriteIcon from "@/component/UI/FavoriteIcon";
-
+import { items } from "@/component/util/items";
+import { FavoriteContext } from "@/store/favorite-context";
 
 const SleepPage = () => {
-  const items = [
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Textdd",
-      discriptions: "Discriptions",
-      image: "assets/89-896932_6v-vw-beetle-toy-car-for-kids-png.png",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-    {
-      title: "Text",
-      discriptions: "Discriptions",
-      image: "assets/images.jpg",
-      price: 150,
-    },
-  ];
+  const addFav = useContext(FavoriteContext).addFavorite;
 
   return (
     <div className={style.bg}>
@@ -86,7 +20,13 @@ const SleepPage = () => {
           <li key={index}>
             {
               <>
-                <FavoriteIcon/>
+                <span
+                  onClick={(e: any) =>
+                    addFav(index, e.target.checked)
+                  }
+                >
+                  <FavoriteIcon/>
+                </span>
                 <img src={item.image} alt={item.title} />
                 <h4>{item.title}</h4>
                 <p>{item.discriptions}</p>

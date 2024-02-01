@@ -1,6 +1,7 @@
 .bg {
   background-color: #caaacd;
   width: 100%;
+  min-height: calc(100% - var(--heigthNavBar));
 }
 .title {
   text-align: center;
