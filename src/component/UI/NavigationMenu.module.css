@@ -4,16 +4,17 @@
     background: #caaacd;
     justify-content: center;
     align-items: center;
+    padding: 10px;
 }
 .nav_list{
     display: grid;
     align-items: center;
     justify-content: end;
-    grid-template: 4rem/15% 15% 15% 15% 40%;
+    grid-template: 4rem/70px 1fr 70px 70px 200px;
     list-style-type: none;
     color: white;
     grid-column: 3/4;
-    margin: 5px;
+    gap: 5px;
     padding: 0;
 }
 
