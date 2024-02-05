@@ -23,7 +23,6 @@ const NavigationMenu = () => {
   return (
     <nav className={style.nav_menu}>
       <Cart showCart={showCart} setCart={setShowCart} />
-
       <HamburgerMenu />
       <ul className={style.nav_list}>
         <li className={path === "/" ? style.active : undefined}>
