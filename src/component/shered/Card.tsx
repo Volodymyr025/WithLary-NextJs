@@ -24,7 +24,7 @@ const Card = ({ items, Favorite, clickFavorite }: propsType) => {
         <Box component={"li"} key={item.id}>
           <span onClick={() => clickFavorite(item)}>{Favorite}</span>
           <img src={item.image} alt={item.title} />
-          <h4>{item.title}</h4>
+          <h2>{item.title}</h2>
           <p>{item.discriptions}</p>
           <p>{item.price + " uah"}</p>
           <div className={style.btn}>
