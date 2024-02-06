@@ -2,11 +2,12 @@ import React from "react";
 import style from "./Card.module.css";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
+import FavoriteIcon from "../UI/FavoriteIcon";
 
 interface propsType {
   items: any;
-  Favorite: JSX.Element;
-  clickFavorite: React.FC;
+  clickFavorite: any;
+  checked?: Boolean;
 }
 
 interface itemsType {
@@ -15,14 +16,17 @@ interface itemsType {
   title: string;
   discriptions: string;
   price: string;
+  favorite: Boolean;
 }
 
-const Card = ({ items, Favorite, clickFavorite }: propsType) => {
+const Card = ({ items, clickFavorite }: propsType) => {
   return (
     <ul className={style.box}>
       {items.map((item: itemsType) => (
         <Box component={"li"} key={item.id}>
-          <span onClick={() => clickFavorite(item)}>{Favorite}</span>
+          <span onClick={() => clickFavorite(item)}>
+            <FavoriteIcon checked={item.favorite ? true : false}/>
+          </span>
           <img src={item.image} alt={item.title} />
           <h2>{item.title}</h2>
           <p>{item.discriptions}</p>

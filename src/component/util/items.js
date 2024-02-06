@@ -5,6 +5,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id2',
@@ -12,6 +13,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/89-896932_6v-vw-beetle-toy-car-for-kids-png.png",
       price: 150,
+      favorite:false
     },
     {
       id: 'id3',
@@ -19,6 +21,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id4',
@@ -26,6 +29,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id5',
@@ -33,6 +37,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id6',
@@ -40,6 +45,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id7',
@@ -47,6 +53,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id8',
@@ -54,6 +61,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id9',
@@ -61,6 +69,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id10',
@@ -68,6 +77,7 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
     {
       id: 'id11',
@@ -75,5 +85,6 @@ export const items = [
       discriptions: "Discriptions",
       image: "assets/images.jpg",
       price: 150,
+      favorite:false
     },
   ];
