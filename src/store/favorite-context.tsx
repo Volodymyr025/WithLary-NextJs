@@ -1,6 +1,5 @@
 "use client";
 import React, { createContext, useState } from "react";
-import { items } from "@/component/util/items";
 
 export const FavoriteContext = createContext<any>({
   itemsList: [],
