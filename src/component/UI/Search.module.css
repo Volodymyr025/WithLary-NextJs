@@ -1,17 +1,17 @@
 .searchBox {
-  position: absolute;
+  right: 0;
   background: #ffffff78;
   height: 40px;
   border-radius: 40px;
   padding: 10px;
 }
 
-.searchBox:focus > .searchInput {
+.searchBox:hover > .searchInput {
   width: 240px;
   padding: 0 6px;
 }
 
-.searchBox:focus > .searchButton {
+.searchBox:hover > .searchButton {
   background: white;
   color: #2f3640;
 }
@@ -40,6 +40,7 @@
   transition: 0.4s;
   line-height: 40px;
   width: 0px;
+  color:black
 }
 
 @media screen and (max-width: 620px) {

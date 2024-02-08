@@ -23,6 +23,9 @@ const NavigationMenu = () => {
 
       <HamburgerMenu />
       <ul className={style.nav_list}>
+        <Box component={"li"}>
+          <SearchBar />
+        </Box>
         <Box
           component={"li"}
           className={path === "/" ? style.active : undefined}
@@ -30,9 +33,6 @@ const NavigationMenu = () => {
           <NavLink href={"/"}>
             <Home sx={{ fontSize: 50 }} />
           </NavLink>
-        </Box>
-        <Box component={"li"}>
-          <SearchBar />
         </Box>
         <Box
           component={"li"}

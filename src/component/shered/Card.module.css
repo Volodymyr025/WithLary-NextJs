@@ -6,6 +6,7 @@
   list-style-type: none;
   font-size: 18px;
   font-weight: bold;
+  margin: 0;
 }
 .box li {
   display: grid;
@@ -17,11 +18,17 @@
 }
 .box li p {
   padding: 5px;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  color: grey;
+  margin-left: 20px;
+}
+.box li h3{
+  margin-left: 10px;
 }
 .box h2 {
   text-align: center;
   font-size: 1.5rem;
+  color: black;
 }
 .box img {
   margin: 0 auto;

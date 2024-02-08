@@ -2,11 +2,13 @@ import React from "react";
 import style from "./Card.module.css";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
+import FavoriteIcon from "../UI/FavoriteIcon";
+import Link from "next/link";
 
 interface propsType {
   items: any;
-  Favorite: JSX.Element;
-  clickFavorite: React.FC;
+  clickFavorite: any;
+  checked?: Boolean;
 }
 
 interface itemsType {
@@ -15,20 +17,25 @@ interface itemsType {
   title: string;
   discriptions: string;
   price: string;
+  favorite: Boolean;
 }
 
-const Card = ({ items, Favorite, clickFavorite }: propsType) => {
+const Card = ({ items, clickFavorite }: propsType) => {
   return (
     <ul className={style.box}>
       {items.map((item: itemsType) => (
         <Box component={"li"} key={item.id}>
-          <span onClick={() => clickFavorite(item)}>{Favorite}</span>
-          <img src={item.image} alt={item.title} />
-          <h2>{item.title}</h2>
+          <span onClick={() => clickFavorite(item)}>
+            <FavoriteIcon checked={item.favorite ? true : false} />
+          </span>
+          <Link href={`/sleep/${item.id}`}>
+            <img src={item.image} alt={item.title} />
+            <h2>{item.title}</h2>
+          </Link>
           <p>{item.discriptions}</p>
-          <p>{item.price + " uah"}</p>
+          <h3>{item.price + " uah"}</h3>
           <div className={style.btn}>
-            <Button size="small" variant="contained" color="success">
+            <Button size="small" variant="contained">
               Buy
             </Button>
           </div>

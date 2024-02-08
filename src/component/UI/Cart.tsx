@@ -8,7 +8,6 @@ interface propsCart {
 }
 
 const Cart = ({ showCart, setCart }: propsCart) => {
- 
   return (
     <>
       {showCart && (
