@@ -13,7 +13,7 @@ export const FavoriteContext = createContext<any>({
   toggleFavorite: () => {},
 });
 
-const itemsReduser = (state: any, action: any) => {
+const itemsReduser = (state: any, action: { id: String; checked: Boolean }) => {
   state.map((item: itemsType) => {
     if (item.id === action.id && !action.checked) {
       item.favorite = true;
@@ -30,6 +30,7 @@ export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [itemCtxState, imemDispach] = useReducer(itemsReduser, items);
 
   const toggleList = (value: { id: string; favorite: Boolean }) => {
+    console.log(value)
     imemDispach({
       checked: value.favorite,
       id: value.id,

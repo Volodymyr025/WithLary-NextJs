@@ -3,6 +3,7 @@ import style from "./Card.module.css";
 import { Box } from "@mui/system";
 import { Button } from "@mui/material";
 import FavoriteIcon from "../UI/FavoriteIcon";
+import Link from "next/link";
 
 interface propsType {
   items: any;
@@ -25,14 +26,16 @@ const Card = ({ items, clickFavorite }: propsType) => {
       {items.map((item: itemsType) => (
         <Box component={"li"} key={item.id}>
           <span onClick={() => clickFavorite(item)}>
-            <FavoriteIcon checked={item.favorite ? true : false}/>
+            <FavoriteIcon checked={item.favorite ? true : false} />
           </span>
-          <img src={item.image} alt={item.title} />
-          <h2>{item.title}</h2>
+          <Link href={`/sleep/${item.id}`}>
+            <img src={item.image} alt={item.title} />
+            <h2>{item.title}</h2>
+          </Link>
           <p>{item.discriptions}</p>
-          <p>{item.price + " uah"}</p>
+          <h3>{item.price + " uah"}</h3>
           <div className={style.btn}>
-            <Button size="small" variant="contained" color="success">
+            <Button size="small" variant="contained">
               Buy
             </Button>
           </div>
