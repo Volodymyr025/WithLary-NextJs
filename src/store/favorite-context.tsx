@@ -1,34 +1,53 @@
 "use client";
-import React, { createContext, useState } from "react";
 import { items } from "@/component/util/items";
+import React, { createContext, useReducer, useState } from "react";
+
+interface itemsType {
+  id: string;
+  favorite: Boolean;
+}
 
 export const FavoriteContext = createContext<any>({
-  itemsList: [],
-  addFavorite: () => {},
-  remoteFavorite: () => {},
+  itemsFavoriteList: [],
+  itemsState: [],
+  toggleFavorite: () => {},
 });
+
+const itemsReduser = (state: any, action: { id: String; checked: Boolean }) => {
+  state.map((item: itemsType) => {
+    if (item.id === action.id && !action.checked) {
+      item.favorite = true;
+    }
+    if (item.id === action.id && action.checked) {
+      item.favorite = false;
+    }
+  });
+  return state;
+};
 
 export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [itemsCtx, setItemsCtx] = useState<any>([]);
+  const [itemCtxState, imemDispach] = useReducer(itemsReduser, items);
 
-  const addToList = (value: { id: string }) => {
-    const findItem = itemsCtx.find(
-      (findId: { id: string }) => findId.id === value.id
-    );
-    !findItem && setItemsCtx((prev: []) => [...prev, value]);
-  };
-
-  const remoteFromList = (value: number) => {
-    const newList = itemsCtx.filter((item: {}) => item !== value);
-    setItemsCtx(newList);
+  const toggleList = (value: { id: string; favorite: Boolean }) => {
+    imemDispach({
+      checked: value.favorite,
+      id: value.id,
+    });
+    if (!value.favorite) {
+      setItemsCtx((prev: []) => [...prev, value]);
+    } else {
+      const newList = itemsCtx.filter((item: {}) => item !== value);
+      setItemsCtx(newList);
+    }
   };
 
   return (
     <FavoriteContext.Provider
       value={{
-        itemsList: itemsCtx,
-        addFavorite: addToList,
-        remoteFavorite: remoteFromList,
+        itemsFavoriteList: itemsCtx,
+        itemsState: itemCtxState,
+        toggleFavorite: toggleList,
       }}
     >
       {children}

@@ -15,11 +15,13 @@
     "@mui/material": "^5.15.6",
     "@mui/styled-engine-sc": "^6.0.0-alpha.13",
     "@mui/system": "^5.15.6",
+    "debounce": "^2.0.0",
     "formik": "^2.4.5",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18",
     "styled-components": "^6.1.8",
+    "use-debounce": "^10.0.0",
     "yup": "^1.3.3"
   },
   "devDependencies": {

@@ -2,13 +2,12 @@
 import React, { useContext } from "react";
 import style from "./Favorite.module.css";
 import { FavoriteContext } from "@/store/favorite-context";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box } from "@mui/system";
 import Card from "@/component/shered/Card";
 
 const Favorite = () => {
-  const items = useContext(FavoriteContext).itemsList;
-  const deleteItems = useContext(FavoriteContext).remoteFavorite;
+  const itemsCtx = useContext(FavoriteContext).itemsFavoriteList;
+  const toggle = useContext(FavoriteContext).toggleFavorite;
 
   return (
     <div className={style.bg}>
@@ -16,7 +15,7 @@ const Favorite = () => {
         <h1 className="logoLary">WithLary</h1>
         <p className="underLogo">Help Ma & Pa</p>
       </div>
-      {items.length === 0 && (
+      {itemsCtx.length === 0 && (
         <Box
           component={"h1"}
           sx={{ color: "#eba95c", textAlign: "center", fontSize: "4rem" }}
@@ -24,11 +23,7 @@ const Favorite = () => {
           Favorite list is empty
         </Box>
       )}
-      <Card
-        items={items}
-        Favorite={<FavoriteIcon sx={{ color: "#1976d2", cursor: "pointer" }} />}
-        clickFavorite={deleteItems}
-      />
+      <Card items={itemsCtx} clickFavorite={toggle} />
     </div>
   );
 };
