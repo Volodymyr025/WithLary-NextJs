@@ -22,7 +22,7 @@
   color: grey;
   margin-left: 20px;
 }
-.box li h3{
+.box li h3 {
   margin-left: 10px;
 }
 .box h2 {
@@ -33,6 +33,7 @@
 .box img {
   margin: 0 auto;
   width: 90%;
+  height: 90%;
   aspect-ratio: 1/1;
 }
 .box span {
@@ -49,6 +50,10 @@
 .btn {
   text-align: end;
 }
+
+.loading {
+}
+
 
 @media (max-width: 980px) {
   .box {

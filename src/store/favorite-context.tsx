@@ -1,5 +1,5 @@
 "use client";
-import { items } from "@/component/util/items";
+import { products } from "@/component/util/products";
 import React, { createContext, useReducer, useState } from "react";
 
 interface itemsType {
@@ -27,7 +27,7 @@ const itemsReduser = (state: any, action: { id: String; checked: Boolean }) => {
 
 export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [itemsCtx, setItemsCtx] = useState<any>([]);
-  const [itemCtxState, imemDispach] = useReducer(itemsReduser, items);
+  const [itemCtxState, imemDispach] = useReducer(itemsReduser, products);
 
   const toggleList = (value: { id: string; favorite: Boolean }) => {
     imemDispach({
@@ -46,7 +46,6 @@ export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
     <FavoriteContext.Provider
       value={{
         itemsFavoriteList: itemsCtx,
-        itemsState: itemCtxState,
         toggleFavorite: toggleList,
       }}
     >

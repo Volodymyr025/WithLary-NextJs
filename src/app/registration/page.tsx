@@ -1,10 +1,11 @@
-"use client"
+"use client";
 import FormPage from "../../component/shered/Form";
 import { Input } from "../../component/shered/Input";
 import { Btn } from "../../component/shered/Btn";
 import { validSchema } from "../../component/util/validation";
 import { useFormik } from "formik";
 import { errorBorder, errorMessage } from "../../component/util/error";
+import submitHeandler from "./submitHeandler";
 
 export interface userType {
   lastName: string;
@@ -27,7 +28,7 @@ const Registration = () => {
         confirm: "",
       },
       onSubmit: (values, actions) => {
-        console.log("submited");
+        submitHeandler(values);
       },
       validationSchema: validSchema,
     });

@@ -12,7 +12,7 @@ const AboutProduct = ({ item, onClick }: any) => {
   return (
     <Box component={"div"} className={style.bg}>
       <section>{item.title}</section>
-      <Box component={"div"} className={style.wrapper}>
+      <Box component={"main"} className={style.wrapper}>
         <Box component={"section"} className={style.imgWrapper}>
           <span onClick={() => onClick(item)}>
             <FavoriteIcon checked={item.favorite ? true : false} />

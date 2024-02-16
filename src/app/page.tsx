@@ -8,7 +8,7 @@ const Home = () => {
       component="main"
       sx={{
         width: "100%",
-        'minHeight': "calc(100% - var(--heigthNavBar))",
+        minHeight: "calc(100% - var(--heigthNavBar))",
         bgcolor: "#caaacd",
       }}
     >
@@ -26,14 +26,24 @@ const Home = () => {
         </Box>
         <Box>
           <ul className={style.mainRight}>
-            <li>Child development from 0-36</li>
-            <li>Everything for feeding</li>
-            <li>Care, hygiene</li>
-            <li>Toys and creativity</li>
+            <Link href={"#"}>
+              <li>Child development from 0-36</li>
+            </Link>
+            <Link href={"#"}>
+              <li>Everything for feeding</li>
+            </Link>
+            <Link href={"/care"}>
+              <li>Care, hygiene</li>
+            </Link>
+            <Link href={"#"}>
+              <li>Toys and creativity</li>
+            </Link>
             <Link href={"/sleep"}>
               <li>Peaceful sleep</li>
             </Link>
-            <li>Children's room and security</li>
+            <Link href={"#"}>
+              <li>Children's room and security</li>
+            </Link>
           </ul>
         </Box>
       </Box>
