@@ -11,7 +11,7 @@
 }
 
 .mainCart {
-    width: 40%;
+    width: 90%;
     background-color: #f5f0f0;
     margin: 0 auto;
     padding: 1rem;
@@ -26,4 +26,82 @@
 
 .lower{
     text-align: center;
+}
+
+.product{
+    display: grid;
+    grid-template: 1fr/auto auto 1fr 150px 150px;
+    justify-content: center;
+    align-items: center;
+}
+
+.product p {
+    text-align: start;
+    margin-left: 50px;
+}
+.product hr {
+    width: 100%;
+    grid-column-start: 1;
+    grid-column-end: 6;
+
+}
+.product svg {
+    width: 40px;
+    height: 40px;
+    padding: 15px;
+    cursor: pointer;
+}
+.total{
+    display: grid;
+    grid-template: 1fr/1fr 1fr 1fr;
+}
+.total p {
+    font-size: larger;
+}
+
+
+.counter input::-webkit-inner-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+.counter input::-webkit-outer-spin-button{
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+.counter input {
+    text-align: center;
+    border: none;
+    width: 100%;
+    font-size: 2.2rem;
+    border-radius: 20px;
+    position: absolute;
+}
+
+.counter {
+    display: grid;
+    font-size: 2.2rem;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.increase{
+    position: absolute;
+    right: 10px;
+    z-index: 1;
+}
+.decrease{
+    position: absolute;
+    left: 10px;
+    z-index: 1;
+}
+
+.increase:hover{
+    color: green;
+    cursor: pointer;
+}
+.decrease:hover{
+    color: red;
+    cursor: pointer;
 }

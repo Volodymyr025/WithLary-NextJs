@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import NavigationMenu from "@/component/UI/NavigationMenu";
 import {ContextWrapper} from '@/store/favorite-context'
+import CartContextWrapper from "@/store/cart-context";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,10 +21,12 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ContextWrapper>
+          <CartContextWrapper>
         <header>
           <NavigationMenu/>
         </header>
         {children}
+        </CartContextWrapper>
         </ContextWrapper>
       </body>
     </html>

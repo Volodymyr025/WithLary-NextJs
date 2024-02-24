@@ -4,18 +4,11 @@ import style from "./SleepPage.module.css";
 import { FavoriteContext } from "@/store/favorite-context";
 import Card from "@/component/shered/Card";
 import { products } from "@/component/util/products";
-
+import { CartContext } from "@/store/cart-context";
 
 const SleepPage = () => {
   const toggle = useContext(FavoriteContext).toggleFavorite;
-  // const [products, setProducts] = useState();
-  // useEffect(() => {
-  //   void (async () => {
-  //     const res = await fetch("/api/items");
-  //     const { items } = await res.json();
-  //     setProducts(items);
-  //   })();
-  // }, []);
+  const addToCart = useContext(CartContext).addProducts;
   return (
     <div className={style.bg}>
       <header className={style.title}>
@@ -23,7 +16,7 @@ const SleepPage = () => {
         <p className="underLogo">Help Ma & Pa</p>
       </header>
       <main>
-        <Card items={products} clickFavorite={toggle} />
+        <Card items={products} clickFavorite={toggle} addToCart={addToCart} />
       </main>
     </div>
   );

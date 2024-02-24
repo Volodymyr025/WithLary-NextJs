@@ -6,6 +6,7 @@ import { validSchema } from "../../component/util/validation";
 import { useFormik } from "formik";
 import { errorBorder, errorMessage } from "../../component/util/error";
 import submitHeandler from "./submitHeandler";
+import { useRouter } from "next/navigation";
 
 export interface userType {
   lastName: string;
@@ -17,6 +18,7 @@ export interface userType {
 }
 
 const Registration = () => {
+  const router = useRouter()
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     useFormik<userType>({
       initialValues: {
@@ -27,8 +29,10 @@ const Registration = () => {
         password: "",
         confirm: "",
       },
-      onSubmit: (values, actions) => {
-        submitHeandler(values);
+      onSubmit: async (values) => {
+        await submitHeandler(values);
+        router.refresh()
+        router.push('/')
       },
       validationSchema: validSchema,
     });

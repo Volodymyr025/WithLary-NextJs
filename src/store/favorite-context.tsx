@@ -31,8 +31,8 @@ export const ContextWrapper = ({ children }: { children: React.ReactNode }) => {
 
   const toggleList = (value: { id: string; favorite: Boolean }) => {
     imemDispach({
-      checked: value.favorite,
       id: value.id,
+      checked: value.favorite,
     });
     if (!value.favorite) {
       setItemsCtx((prev: []) => [...prev, value]);
