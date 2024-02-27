@@ -9,47 +9,57 @@ export const CartContext = createContext<any>({
 });
 
 interface quantityType {
-  type: String;
-  id: String;
-  quantity: number;
+  type?: String;
+  item: {};
+  quantity?: number;
 }
 
 const itemsReduser = (state: any, action: quantityType) => {
-    if(action.type === 'increase'){
-        state = action.quantity
+  if (action.type === "ADD") {
+    const items = [...state];
+    const item = items.find((item) => item === action.item);
+    if (!item) {
+      items.push({...action.item, qu:1});
     }
-  console.log(state);
-  return state;
+    return (state = items);
+  }
+  if(action.type === "QU"){
+    const item:any = action.item;
+    item.qu = item.qu + action.quantity
+    return item
+  }
 };
 
 const CartContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const [productsInCart, setProductsInCart] = useState<any>([]);
+  const [quantityCtx, setQuantityCtx] = useState<any>([]);
   const [quantityState, quantityDispach] = useReducer(itemsReduser, []);
 
   const addToCart = (value: {}) => {
-    const dublicate = productsInCart.find((product: any) => product === value);
-    if (!dublicate) {
-      setProductsInCart((prev: []) => [...prev, value]);
-    }
+    quantityDispach({
+      type: "ADD",
+      item: value,
+    });
   };
   const deleteFromCart = (value: {}) => {
     const products = productsInCart.filter((product: {}) => product !== value);
     setProductsInCart(products);
   };
 
-  const quantity = (value: { id: String; price: number }, action: String) => {
+  const quantity = (value: {}, quantity: number) => {
     quantityDispach({
-      type: action,
-      id: value.id,
-      quantity: value.price,
+      type: "QU",
+      item: value,
+      quantity: quantity,
     });
+    console.log(quantityState);
   };
 
   return (
     <CartContext.Provider
       value={{
         addProducts: addToCart,
-        cartProducts: productsInCart,
+        cartProducts: quantityState,
         deleteProduct: deleteFromCart,
         quantityCtx: quantity,
       }}

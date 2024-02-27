@@ -65,17 +65,17 @@ const Cart = ({
                       </section>
                     </div>
                     <div className={style.counter}>
-                      <section className={style.increase} onClick={()=>quantity(product,'increase')}>
+                      <section className={style.increase} onClick={()=>quantity(product,1)}>
                         +
                       </section>
                       <input
                         type="number"
                         min={0}
                         max={5}
-                        defaultValue={1}
+                        
             
                       ></input>
-                      <section className={style.decrease}>-</section>
+                      <section className={style.decrease} onClick={()=>quantity(product,-1)}>-</section>
                     </div>
                     <p>{product.price} $</p>
                     <hr></hr>
