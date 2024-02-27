@@ -13,6 +13,7 @@ interface propsCart {
   products: [];
   deleteProducts: (product: {}) => {};
   quantity: any;
+  change: any;
 }
 
 const Cart = ({
@@ -21,7 +22,15 @@ const Cart = ({
   products,
   deleteProducts,
   quantity,
+  change,
 }: propsCart) => {
+  const totalPrice = products.reduce(
+    (acc, item: { price: number; quantity: number }) =>
+      acc + item.price * item.quantity,
+    0
+  );
+  const formattedTotalPrice = `$${totalPrice.toFixed(2)}`;
+
   return (
     <>
       {showCart && (
@@ -81,20 +90,61 @@ const Cart = ({
                     <hr></hr>
                   </Box>
                 ))}
+                products.map((product: itemsType) => {
+                  const formattedPrice = (
+                    product.price * product.quantity!
+                  ).toFixed(2);
+
+                  return (
+                    <Box
+                      component={"div"}
+                      className={style.product}
+                      key={product.id}
+                    >
+                      <DeleteForeverIcon
+                        onClick={() => {
+                          deleteProducts(product);
+                        }}
+                      />
+                      <Image
+                        src={product.image}
+                        alt={product.title}
+                        width={150}
+                        height={150}
+                      ></Image>
+                      <div>
+                        <p>{product.title}</p>
+                        <section>
+                          <p>color</p>
+                          <p>Width</p>
+                          <p>Height</p>
+                        </section>
+                      </div>
+                      <div className={style.counter}>
+                        <section
+                          className={style.increase}
+                          onClick={() => quantity(product, 1)}
+                        >
+                          +
+                        </section>
+                        <span>{product.quantity}</span>
+                        <section
+                          className={style.decrease}
+                          onClick={() => quantity(product, -1)}
+                        >
+                          -
+                        </section>
+                      </div>
+                      <p>{formattedPrice} $</p>
+                      <hr></hr>
+                    </Box>
+                  );
+                })}
             </div>
             {products.length > 0 && (
               <div className={style.total}>
                 <p>Back to products</p>
-                <p>
-                  Total price:{" "}
-                  {products.reduce(
-                    (total: number, product: { price: number }) => {
-                      return total + product.price;
-                    },
-                    0
-                  )}{" "}
-                  $
-                </p>
+                <p>Total price: {formattedTotalPrice}$</p>
                 <Button variant="contained" color="success">
                   Order
                 </Button>

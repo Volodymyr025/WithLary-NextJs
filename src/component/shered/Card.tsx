@@ -20,8 +20,9 @@ export interface itemsType {
   image: string;
   title: string;
   discriptions: string;
-  price: string;
+  price: number;
   favorite: Boolean;
+  quantity?:number | undefined
 }
 
 const Card = ({ items, clickFavorite, addToCart }: propsType) => {
