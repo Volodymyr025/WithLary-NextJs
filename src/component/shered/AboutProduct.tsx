@@ -8,7 +8,7 @@ import { Button } from "@mui/material";
 import FavoriteIcon from "@/component/UI/FavoriteIcon";
 
 
-const AboutProduct = ({ item, onClick }: any) => {
+const AboutProduct = ({ item, onClick, addToCart }: any) => {
   return (
     <Box component={"div"} className={style.bg}>
       <section>{item.title}</section>
@@ -23,7 +23,7 @@ const AboutProduct = ({ item, onClick }: any) => {
           <h1>{item.title}</h1>
           <p>{item.discriptions}</p>
           <h2>{item.price + " uah"}</h2>
-          <Button variant="contained" size="large">
+          <Button variant="contained" size="large" onClick={()=>addToCart(item)}>
             Buy
           </Button>
         </Box>

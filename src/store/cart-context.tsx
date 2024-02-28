@@ -1,22 +1,21 @@
 "use client";
-import { createContext, useReducer, useState } from "react";
+import { createContext, useReducer } from "react";
 
 export const CartContext = createContext<any>({
   addProducts: () => {},
   deleteProduct: () => {},
   cartProducts: [],
   quantityCtx: {},
-  change: () => {},
 });
 
 interface quantityType {
   type: String;
   id?: String;
-  items?: {};
-  inputValue?: { value: number };
+  item?: {};
+  amount?:number,
 }
 
-const itemsReduser = (state: any, action: any) => {
+const itemsReduser = (state: any, action: quantityType) => {
   if (action.type === "ADD") {
     const items = [...state];
     const dublicate = items.find((product: any) => product.id === action.id);
@@ -34,7 +33,7 @@ const itemsReduser = (state: any, action: any) => {
   if (action.type === "QUANTITY") {
     const updatedItems = [...state];
     const updatedItemIndex = updatedItems.findIndex(
-      (item) => item.id === action.item.id
+      (item) => item.id === action.id
     );
 
     const updatedItem = {
@@ -75,22 +74,17 @@ const CartContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const quantity = (value: { id: string; price: number }, amount: number) => {
     cartDispach({
       type: "QUANTITY",
+      id:value.id,
       item: value,
       amount: amount,
     });
   };
-  const changeItem = (value: any) => {
-    cartDispach({
-      type: "changeInput",
-      inputValue: value,
-    });
-  };
+
 
   return (
     <CartContext.Provider
       value={{
         addProducts: addToCart,
-        change: changeItem,
         cartProducts: cartStore,
         deleteProduct: deleteFromCart,
         quantityCtx: quantity,

@@ -26,7 +26,6 @@ const NavigationMenu = () => {
   const quantityCtx = useContext(CartContext).quantityCtx;
   const productsCtx = useContext(CartContext).cartProducts;
   const deleteCtx = useContext(CartContext).deleteProduct;
-  const change = useContext(CartContext).change
   const favoriteCth = useContext(FavoriteContext).itemsFavoriteList;
   const [showCart, setShowCart] = useState(false);
 
@@ -42,7 +41,6 @@ const NavigationMenu = () => {
         products={productsCtx}
         deleteProducts={deleteCtx}
         quantity={quantityCtx}
-        change={change}
       />
       <HamburgerMenu />
       <ul className={style.nav_list}>

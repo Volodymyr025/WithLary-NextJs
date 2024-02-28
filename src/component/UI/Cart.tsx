@@ -12,8 +12,7 @@ interface propsCart {
   setCart: Dispatch<SetStateAction<boolean>>;
   products: [];
   deleteProducts: (product: {}) => {};
-  quantity: any;
-  change: any;
+  quantity: (product: {}, {}: number) => {};
 }
 
 const Cart = ({
@@ -22,7 +21,6 @@ const Cart = ({
   products,
   deleteProducts,
   quantity,
-  change,
 }: propsCart) => {
   const totalPrice = products.reduce(
     (acc, item: { price: number; quantity: number }) =>

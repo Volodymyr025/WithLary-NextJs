@@ -1,10 +1,12 @@
-'use client';
+"use client";
 import { Input } from "../../component/shered/Input";
 import { Btn } from "../../component/shered/Btn";
 import FormPage from "../../component/shered/Form";
 import { validSchema } from "../../component/util/validation";
 import { useFormik } from "formik";
 import { errorBorder, errorMessage } from "../../component/util/error";
+import Link from "next/link";
+import { Box } from "@mui/system";
 
 export interface userType {
   lastName: string;
@@ -68,10 +70,13 @@ export const Login = () => {
             <p style={errorMessage}>{errors.password}</p>
           )}
           <Btn type="submit" disabled={validBtn} />
+          <Box sx={{fontSize:20,margin:5}}>
+            <Link href="/registration"> Registration </Link>
+          </Box>
         </>
       </FormPage>
     </>
   );
 };
 
-export default Login
+export default Login;

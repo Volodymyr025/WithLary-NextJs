@@ -7,6 +7,8 @@ import { useFormik } from "formik";
 import { errorBorder, errorMessage } from "../../component/util/error";
 import submitHeandler from "./submitHeandler";
 import { useRouter } from "next/navigation";
+import { Box } from "@mui/system";
+import Link from "next/link";
 
 export interface userType {
   lastName: string;
@@ -18,7 +20,7 @@ export interface userType {
 }
 
 const Registration = () => {
-  const router = useRouter()
+  const router = useRouter();
   const { values, touched, errors, handleChange, handleBlur, handleSubmit } =
     useFormik<userType>({
       initialValues: {
@@ -31,8 +33,8 @@ const Registration = () => {
       },
       onSubmit: async (values) => {
         await submitHeandler(values);
-        router.refresh()
-        router.push('/')
+        router.refresh();
+        router.push("/");
       },
       validationSchema: validSchema,
     });
@@ -143,6 +145,9 @@ const Registration = () => {
             <p style={errorMessage}>{errors.confirm}</p>
           )}
           <Btn type="submit" disabled={validBtn} />
+          <Box sx={{ fontSize: 20, margin: 5 }}>
+            <Link href="/login"> Login </Link>
+          </Box>
         </>
       </FormPage>
     </>
