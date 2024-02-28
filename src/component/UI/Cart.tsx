@@ -12,7 +12,8 @@ interface propsCart {
   setCart: Dispatch<SetStateAction<boolean>>;
   products: [];
   deleteProducts: (product: {}) => {};
-  quantity: (product: {}, {}: number) => {};
+  quantity: any;
+  change: any;
 }
 
 const Cart = ({

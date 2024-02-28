@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useReducer } from "react";
+import { createContext, useReducer, useState } from "react";
 
 export const CartContext = createContext<any>({
   addProducts: () => {},
@@ -12,7 +12,7 @@ interface quantityType {
   type: String;
   id?: String;
   item?: {};
-  amount?:number,
+  amount?: number;
 }
 
 const itemsReduser = (state: any, action: quantityType) => {
@@ -74,9 +74,9 @@ const CartContextWrapper = ({ children }: { children: React.ReactNode }) => {
   const quantity = (value: { id: string; price: number }, amount: number) => {
     cartDispach({
       type: "QUANTITY",
-      id:value.id,
       item: value,
       amount: amount,
+      id: value.id,
     });
   };
 
